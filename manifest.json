@@ -1,0 +1,12 @@
+{
+  "name": "scrollbars",
+  "id": "1119045831274955819",
+  "api": "1.0.0",
+  "main": "code.js",
+  "relaunchButtons": [
+    {"name": "Re-apply scrollbar", "command": "ReapplyScrollbar"}
+  ],
+  "editorType": [
+    "figma"
+  ]
+}
