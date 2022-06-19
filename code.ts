@@ -145,10 +145,6 @@ function removeNode(node) {
     }
 }
 
-if (figma.command === 'ReapplyEasing') {
-
-}
-
 function checkNodeEligibility() {
     for (const node of figma.currentPage.selection) {
         if (node.type == "FRAME") {
