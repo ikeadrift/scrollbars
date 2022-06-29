@@ -1,3 +1,13 @@
+Easily add accurate horizontal and vertical scrollbars to frames. Works regardless of Auto-Layout settings and calculates all sizing automatically :^)
+
+Simply select a frame with children and run the plugin. If a scrollbar is needed on either axis, it will be added to your frame. (Note that if nothing is out of the bounds of the frame, no scrollbars are needed, so nothing will be generated!) If your content changes, re-run the plugin on your frame (optionally via a shortcut in the properties panel) and the scrollbars will adjust accordingly.
+
+In the future, if requested, I would consider adding a control panel for editing the size/styling of the generated scrollbar and changing initial offsets.
+
+Enjoy!
+
+---
+
 Below are the steps to get your plugin running. You can also find instructions at:
 
   https://www.figma.com/plugin-docs/setup/
