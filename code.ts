@@ -142,12 +142,6 @@ function calculateScrollbar(containerNode: FrameNode, x1: number, x2: number, y1
     }
 }
 
-function removeNode(node) {
-    if (node.id == "pluginscrollbar") {
-        node.remove();
-    }
-}
-
 function checkNodeEligibility() {
     if (figma.currentPage.selection.length === 0) {
         figma.closePlugin("Please select a frame.");
