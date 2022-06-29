@@ -123,6 +123,10 @@ function calculateScrollbar(containerNode: FrameNode, x1: number, x2: number, y1
     const contentWidth = x2 - x1 + containerWidth;
     const contentHeight = y2 - y1 + containerHeight;
 
+    if ( (contentHeight <= containerHeight) && (contentWidth <= containerWidth) ) {
+        figma.closePlugin("No scrollbars needed.");
+    }
+
     if (contentWidth > containerWidth) {
         scrollbarLength = Math.round((containerWidth / contentWidth) * (containerWidth - 4));
         scrollbarOffset = Math.round((Math.abs(x1) / contentWidth) * (containerWidth - 4)) + 2;
@@ -136,7 +140,6 @@ function calculateScrollbar(containerNode: FrameNode, x1: number, x2: number, y1
         scrollbarOffset = Math.round((Math.abs(y1) / contentHeight) * (containerHeight - 4)) + 2;
         addScrollbar(containerNode, "VERTICAL", scrollbarOffset, scrollbarLength);
     }
-    
 }
 
 function removeNode(node) {
@@ -146,9 +149,12 @@ function removeNode(node) {
 }
 
 function checkNodeEligibility() {
+    if (figma.currentPage.selection.length === 0) {
+        figma.closePlugin("Please select a frame.");
+    }
     for (const node of figma.currentPage.selection) {
         if (node.type == "FRAME") {
-            if (node.findChild) {
+            if (node.children.length !== 0) {
                 node.findChildren(n => n.getPluginData("pluginscrollbar") === "true").forEach(n => n.remove());
                 const {x1, x2, y1, y2} = findContentEdges(node, node.children);
                     calculateScrollbar(node, x1, x2, y1, y2);
